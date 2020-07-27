@@ -14,6 +14,10 @@ const AtlasSingle = (props) => {
       const country = props.match.url.split('/');
       Api.apiCountry(country[2]).then((data) => {
         if (data.status === 404) return setNotFound(true);
+        if (data[0].latlng.length < 2) {
+          data[0].latlng[0] = 0;
+          data[0].latlng[1] = 0;
+        }
         Api.apiBorders(data[0].borders).then((data) => {
           setBorders(data);
         });
@@ -25,6 +29,10 @@ const AtlasSingle = (props) => {
       const code = props.match.url.split('/');
       Api.apiCode(code[2]).then((data) => {
         if (data.status === 404) return setNotFound(true);
+        if (data.latlng.length < 2) {
+          data.latlng[0] = 0;
+          data.latlng[1] = 0;
+        }
         Api.apiBorders(data.borders).then((data) => {
           setBorders(data);
         });
@@ -88,7 +96,9 @@ const AtlasSingle = (props) => {
               url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             />
-            <Marker position={[country.latlng[0], country.latlng[1]]} />
+            <Marker
+              position={[country.latlng[0] || 0, country.latlng[1] || 0]}
+            />
           </Map>
         </div>
       ) : (
