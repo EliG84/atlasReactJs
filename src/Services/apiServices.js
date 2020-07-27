@@ -20,13 +20,13 @@ export const apiCode = async (code) => {
 };
 
 export const apiBorders = async (arr) => {
-  let borders = [];
+  let borders = new Array(arr.length);
   await Promise.all(
-    arr.map(async (item) => {
+    arr.map(async (item, i) => {
       let url = `https://restcountries.eu/rest/v2/alpha/${item}`;
       let resp = await fetch(url);
       let data = await resp.json();
-      borders.push(data.name);
+      borders[i] = data.name;
     })
   );
   return borders;
