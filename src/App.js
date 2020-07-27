@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AtlasMain from './Components/AtlasMain';
 
 class App extends React.Component {
   constructor(props) {
@@ -7,7 +9,11 @@ class App extends React.Component {
   }
 
   render() {
-    return <React.Fragment></React.Fragment>;
+    return (
+      <Router>
+        <AtlasMain />
+      </Router>
+    );
   }
 }
 
