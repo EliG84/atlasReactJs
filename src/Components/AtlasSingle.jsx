@@ -97,7 +97,7 @@ const AtlasSingle = (props) => {
             <h5 className=''>
               Borders with
               {country.borders.length === 0
-                ? ' Not One!'
+                ? ' No One!'
                 : country.borders.map((item, i) => (
                     <span key={i}>
                       {' '}
