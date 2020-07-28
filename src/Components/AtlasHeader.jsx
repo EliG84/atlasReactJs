@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import '../Style/Atlas.css';
 
 const AtlasHeader = (props) => {
   let [start, setStart] = useState(0);
   let [end, setEnd] = useState(6);
+  const { innerWidth: width } = window;
 
   let history = useHistory();
+
+  useEffect(() => {
+    if (width <= 720) setEnd(end - 3);
+  }, []);
 
   const next = () => {
     if (end >= props.countries.length - 1) {
@@ -18,8 +23,13 @@ const AtlasHeader = (props) => {
 
   const prev = () => {
     if (start <= 0) {
-      setStart(0);
-      setEnd(6);
+      if (width <= 720) {
+        setStart(0);
+        setEnd(3);
+      } else {
+        setStart(0);
+        setEnd(6);
+      }
       return;
     }
     setEnd(end - 1);
