@@ -1,3 +1,5 @@
+# Mini Atlas Web Application
+
 ReactJs Student Project <br/>
 
 project URL : https://atlas-eli.netlify.app/ <br/>
@@ -5,7 +7,7 @@ project URL : https://atlas-eli.netlify.app/ <br/>
 program: Speed Tech Ort Singalovsky <br/>
 https://s.ort.org.il/ <br/>
 
-Teacher: Ofer Shely <br/>
+Lecturer: Ofer Shely <br/>
 http://monkeys.co.il/ <br/>
 
 Api's used: <br/>
