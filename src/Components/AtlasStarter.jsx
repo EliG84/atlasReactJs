@@ -10,7 +10,7 @@ const AtlasStarter = (props) => {
   ];
 
   return (
-    <div className='bg-light d-flex flex-wrap text-center justify-content-between m-2'>
+    <div className='bg-light d-flex flex-wrap text-center justify-content-center m-2'>
       {props.countries.length > 0 ? (
         <h2 className='col-12 font-weight-bold font-italic'>Pick a Flag</h2>
       ) : (

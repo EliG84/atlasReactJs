@@ -80,9 +80,11 @@ const AtlasHeader = (props) => {
         </svg>
       </div>
       <div className='col-lg-5 mt-lg-2 mt-2 m-0 p-0 mr-lg-2'>
-        <form onSubmit={formSubmit} className='d-flex justify-content-between'>
+        <form
+          onSubmit={formSubmit}
+          className='d-flex justify-content-between align-items-end'>
           <input
-            className='form-control'
+            className='inText'
             type='text'
             name='search'
             id='search'

@@ -44,7 +44,7 @@ const AtlasSingle = (props) => {
   return (
     <div className='text-center'>
       {notFound ? (
-        <h2>Invalid Country or Code!</h2>
+        <h2>Invalid country name try again!</h2>
       ) : country ? (
         <div className='card row'>
           <h2 className='font-italic font-weight-bold mb-3'>{country.name}</h2>
