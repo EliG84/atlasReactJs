@@ -9,6 +9,9 @@ const AtlasHeader = (props) => {
   let history = useHistory();
 
   const next = () => {
+    if (end >= props.countries.length - 1) {
+      return;
+    }
     setEnd(end + 1);
     setStart(start + 1);
   };
