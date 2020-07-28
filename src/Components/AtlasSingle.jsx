@@ -56,39 +56,54 @@ const AtlasSingle = (props) => {
             />
             <div className='d-flex flex-column ml-3 text-left'>
               <p className='font-weight-bold'>
-                POP:
-                {' ' +
-                  country.population
-                    .toString()
-                    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                POP:{' '}
+                {country.population === ''
+                  ? ' No info in database.'
+                  : country.population
+                      .toString()
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
               </p>
-              <p className='font-weight-bold'>Region:{'  ' + country.region}</p>
+              <p className='font-weight-bold'>
+                Region:{'  '}
+                {country.region === ''
+                  ? ' No info in database.'
+                  : country.region}
+              </p>
               <p className='font-weight-bold'>
                 Languages:
-                {country.languages.map((item, i) => (
-                  <span key={i}> {item.name} </span>
-                ))}
+                {country.languages.length === 0
+                  ? ' No info in database.'
+                  : country.languages.map((item, i) => (
+                      <span key={i}> {item.name} </span>
+                    ))}
               </p>
               <p className='font-weight-bold'>
                 Coin:{' '}
-                {country.currencies.map((item, i) => (
-                  <span key={i}> {item.code} </span>
-                ))}{' '}
+                {country.currencies.length === 0
+                  ? ' No info in database.'
+                  : country.currencies.map((item, i) => (
+                      <span key={i}> {item.code} </span>
+                    ))}{' '}
               </p>
               <p className='font-weight-bold'>
-                Capital: {' ' + country.capital}
+                Capital:{' '}
+                {country.capital === ''
+                  ? ' No info in database.'
+                  : country.capital}
               </p>
             </div>
           </div>
           <div>
             <h5 className=''>
-              Borders with:
-              {country.borders.map((item, i) => (
-                <span key={i}>
-                  {' '}
-                  <Link to={`/code/${item}`}>{borders[i]}</Link>{' '}
-                </span>
-              ))}
+              Borders with
+              {country.borders.length === 0
+                ? ' Not One!'
+                : country.borders.map((item, i) => (
+                    <span key={i}>
+                      {' '}
+                      <Link to={`/code/${item}`}>{borders[i]}</Link>{' '}
+                    </span>
+                  ))}
             </h5>
           </div>
           <Map center={[country.latlng[0], country.latlng[1]]} zoom={7}>
