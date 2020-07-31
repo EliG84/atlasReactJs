@@ -1,4 +1,4 @@
-# Mini Atlas Web Application
+# Mini Atlas ReactJs Web Application
 
 ReactJs Student Project <br/>
 
